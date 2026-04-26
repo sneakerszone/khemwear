@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KHEM Cart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f2f2f2;
+  color: #111;
+}
+
+/* HEADER */
+header {
+  background: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+header h2 {
+  letter-spacing: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: #111;
+}
+
+/* LAYOUT */
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+/* CART GRID */
+.cart-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+/* ITEMS */
+.item {
+  background: white;
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.item img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.info {
+  flex: 1;
+}
+
+.info p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* QTY */
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* REMOVE BUTTON */
+.remove {
+  background: red;
+  color: white;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* SUMMARY */
+.summary {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  height: fit-content;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.summary h3 {
+  margin-bottom: 20px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* CHECKOUT BUTTON */
+.checkout {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.checkout:hover {
+  opacity: 0.9;
+}
+
+/* EMPTY */
+.empty {
+  text-align: center;
+  color: #777;
+  padding: 40px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 800px){
+  .cart-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>KHEM</h2>
+  <a href="index.html">← Continue Shopping</a>
+</header>
+
+<div class="container">
+  <h1>Your Cart</h1>
+
+  <div class="cart-wrapper">
+    <div id="cart-items"></div>
+
+    <div class="summary">
+      <h3>Order Summary</h3>
+      <div id="summary"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ================= CART =================
+function getCart() {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+  render();
+}
+
+// ================= RENDER =================
+function render() {
+  const cart = getCart();
+  const box = document.getElementById("cart-items");
+  const summary = document.getElementById("summary");
+
+  box.innerHTML = "";
+  summary.innerHTML = "";
+
+  if (cart.length === 0) {
+    box.innerHTML = `<div class="empty">Your cart is empty 🛒</div>`;
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach((item, i) => {
+    total += item.price * item.qty;
+
+    box.innerHTML += `
+      <div class="item">
+        <img src="${item.image}">
+
+        <div class="info">
+          <b>${item.name}</b>
+          <p>Size: ${item.size}</p>
+          <p>${item.price} GHC</p>
+        </div>
+
+        <div class="qty">
+          <button onclick="dec(${i})">-</button>
+          <span>${item.qty}</span>
+          <button onclick="inc(${i})">+</button>
+        </div>
+
+        <button class="remove" onclick="removeItem(${i})">×</button>
+      </div>
+    `;
+  });
+
+  summary.innerHTML = `
+    <div class="total">
+      <span>Total</span>
+      <span>${total} GHC</span>
+    </div>
+
+    <button class="checkout" onclick="goCheckout()">
+      Checkout
+    </button>
+  `;
+}
+
+// ================= ACTIONS =================
+function inc(i){
+  let cart = getCart();
+  cart[i].qty++;
+  saveCart(cart);
+}
+
+function dec(i){
+  let cart = getCart();
+
+  if(cart[i].qty > 1){
+    cart[i].qty--;
+  } else {
+    cart.splice(i,1);
+  }
+
+  saveCart(cart);
+}
+
+function removeItem(i){
+  let cart = getCart();
+  cart.splice(i,1);
+  saveCart(cart);
+}
+
+// ================= CHECKOUT =================
+function goCheckout() {
+  const cart = getCart();
+
+  if (cart.length === 0) {
+    alert("Your cart is empty 🛒");
+    return;
+  }
+
+  window.location.href = "checkout.html";
+}
+
+// INIT
+render();
+</script>
+
+</body>
+</html>

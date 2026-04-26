@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KHEM Jeans</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #111;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      position: absolute;
+      width: 100%;
+      color: white;
+      z-index: 10;
+    }
+
+    .navbar a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      height: 90vh;
+      background: url('https://i.pinimg.com/1200x/d7/9a/16/d79a16df7a06ca44991be375ec58edc5.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      font-weight: 300;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      border: none;
+      background: white;
+      color: black;
+      cursor: pointer;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* PRODUCTS */
+    .products {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      background: #f5f5f5;
+    }
+
+    .card p {
+      margin-top: 10px;
+      font-size: 13px;
+      text-transform: capitalize;
+    }
+
+    .card span {
+      font-size: 12px;
+      color: gray;
+    }
+
+    /* SOLD OUT */
+    .sold-out {
+      position: relative;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .img-wrap {
+      position: relative;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 6px 10px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      z-index: 2;
+    }
+
+    /* FEATURE */
+    .feature, .feat {
+      height: 80vh;
+      background: url('https://i.pinimg.com/1200x/19/b4/49/19b44930dc100a77eebe3a2f815a0c75.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .feature h2, .feat h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .feature button, .feat button {
+      padding: 10px 20px;
+      border: none;
+      background: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">KHEM</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Quick Buy</a>
+    <a href="brand.html">Brands</a>
+  </nav>
+  <div class="icons">🛒</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>The Legacy Jeans</h1>
+    <button>SHOP JEANS</button>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+<section class="products">
+  <h2>SHOP DENIM COLLECTION</h2>
+  <div class="grid">
+
+    <a href="#" class="card">
+      <img src="https://i.pinimg.com/1200x/19/b4/49/19b44930dc100a77eebe3a2f815a0c75.jpg">
+      <p>Light blue slim jeans</p>
+      <span>250ghc</span>
+    </a>
+
+    <a href="#" class="card">
+      <img src="https://i.pinimg.com/1200x/3f/28/92/3f2892d2b4df4c7c7c61d63b7d3c68d5.jpg">
+      <p>Ripped denim jeans</p>
+      <span>300ghc</span>
+    </a>
+
+    <a href="#" class="card">
+      <img src="https://i.pinimg.com/1200x/8f/44/6f/8f446f67f26c78bb1e3c9d5b9b7f5dcb.jpg">
+      <p>Black fitted jeans</p>
+      <span>270ghc</span>
+    </a>
+
+    <a href="#" class="card">
+      <img src="https://i.pinimg.com/1200x/4e/21/e2/4e21e2a4dfc18b4c97df1c7c9e7a8c56.jpg">
+      <p>Baggy street jeans</p>
+      <span>320ghc</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature">
+  <div>
+    <h2>KHEM DENIM</h2>
+    <button>EXPLORE JEANS</button>
+  </div>
+</section>
+
+<!-- SECOND GRID -->
+<section class="products">
+  <h2>ESSENTIAL JEANS</h2>
+  <div class="grid">
+
+    <a href="#" class="card">
+      <img src="https://i.pinimg.com/1200x/22/cc/5a/22cc5aa40d8a2a2c07f5e24c0bfa7a21.jpg">
+      <p>Dark blue jeans</p>
+      <span>200ghc</span>
+    </a>
+
+    <a href="#" class="card">
+      <img src="https://i.pinimg.com/1200x/33/77/6d/33776d85f55b9c7fa9b45a3b01cb7c8c.jpg">
+      <p>Grey wash jeans</p>
+      <span>200ghc</span>
+    </a>
+
+    <a href="#" class="card">
+      <img src="https://i.pinimg.com/1200x/aa/66/71/aa6671b4d05d4c2c4f80a96c1e64c05d.jpg">
+      <p>Classic straight jeans</p>
+      <span>220ghc</span>
+    </a>
+
+    <a href="#" class="card">
+      <img src="https://i.pinimg.com/1200x/aa/88/bd/aa88bd8d42e4dba7dc61d94fd7a6f61d.jpg">
+      <p>Wide leg jeans</p>
+      <span>260ghc</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- SECOND FEATURE -->
+<section class="feat">
+  <div>
+    <h2>Denim Vol 1</h2>
+    <button>EXPLORE PREMIUM JEANS</button>
+  </div>
+</section>
+
+<!-- THIRD GRID -->
+<section class="products">
+  <h2>PREMIUM JEANS</h2>
+  <div class="grid">
+
+    <a href="#" class="card">
+      <img src="https://i.pinimg.com/1200x/0f/d1/0b/0fd10b5a9137c5b7fd5f7a1c5c1c86b7.jpg">
+      <p>Distressed designer jeans</p>
+      <span>400ghc</span>
+    </a>
+
+    <a href="#" class="card sold-out">
+      <div class="img-wrap">
+        <img src="https://i.pinimg.com/1200x/f0/46/3b/f0463bb9d0c7a7c55d0eecb8fa49a8bb.jpg">
+        <div class="badge">SOLD OUT</div>
+      </div>
+      <p>Luxury denim jeans</p>
+      <span>450ghc</span>
+    </a>
+
+  </div>
+</section>
+
+</body>
+</html>

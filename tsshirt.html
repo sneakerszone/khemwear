@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KHEM</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #111;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      position: absolute;
+      width: 100%;
+      color: white;
+      z-index: 10;
+    }
+
+    .navbar a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      height: 90vh;
+      background: url('xx.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      border: none;
+      background: white;
+      color: black;
+      cursor: pointer;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* PRODUCTS */
+    .products {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      background: #f5f5f5;
+    }
+
+    .card p {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .card span {
+      font-size: 12px;
+      color: gray;
+    }
+
+    /* FEATURE SECTION */
+    .feature, .feat {
+      height: 80vh;
+      background: url('https://i.pinimg.com/1200x/80/53/49/80534970d4c3295a0cdcf12911442fe4.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .feature h2, .feat h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .feature button, .feat button {
+      padding: 10px 20px;
+      border: none;
+      background: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">KHEM</div>
+  <nav>
+  <a href="index.html">Home</a>
+    <a href="shop.html">Quick Buy</a>
+    <a href="brand.html">Brands</a>
+  </nav>
+  <div class="icons">🛒</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>The Legacy Capsule</h1>
+    <button>SHOP THE DROP</button>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+<section class="products">
+  <h2>SHOP THE LEGACY CAPSULE</h2>
+  <div class="grid">
+
+    <a href="black-tshirt.html" class="card">
+      <img src="https://i.pinimg.com/1200x/94/e0/21/94e021c9580b8610a0aafc3eccbed4c2.jpg">
+      <p>Black t-shirt</p>
+      <span>200ghc</span>
+    </a>
+
+    <a href="white-tshirt.html" class="card">
+      <img src="https://i.pinimg.com/1200x/63/68/cb/6368cb71583b56ddbc9ee67c83fab4dd.jpg">
+      <p>White T-shirt</p>
+      <span>200ghc</span>
+    </a>
+
+    <a href="acid-wash-tshirt.html" class="card">
+      <img src="https://i.pinimg.com/1200x/28/4c/83/284c836256c6f56c5ef635aa99bf5181.jpg">
+      <p>Acid wash t-shirt</p>
+      <span>200ghc</span>
+    </a>
+
+    <a href="chocolate-tshirt.html" class="card">
+      <img src="https://i.pinimg.com/736x/aa/42/28/aa4228a6e1fc12db6a76f83a59e8f89c.jpg">
+      <p>Chocolate t-shirt</p>
+      <span>200ghc</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature">
+  <div>
+    <h2>KHEM WEAR</h2>
+    <button>EXPLORE THE EDIT</button>
+  </div>
+</section>
+
+<!-- SECOND GRID -->
+<section class="products">
+  <h2>SHOP KHEM'S EDIT</h2>
+  <div class="grid">
+
+    <a href="black-sleeveless-tshirt.html" class="card">
+      <img src="https://i.pinimg.com/736x/d8/49/a6/d849a6492aeb1e99f5d3729477091485.jpg">
+      <p>Black sleeveless t-shirt</p>
+      <span>180ghc</span>
+    </a>
+
+    <a href="white-sleeveless-tshirt.html" class="card">
+      <img src="https://i.pinimg.com/1200x/f1/20/9e/f1209ebbbac7d2a048286f016ae08d36.jpg">
+      <p>White sleeveless t-shirt</p>
+      <span>180ghc</span>
+    </a>
+
+    <a href="gray-sleeveless-tshirt.html" class="card">
+      <img src="https://i.pinimg.com/736x/f0/27/f9/f027f91c32e1cceb16212996f3589765.jpg">
+      <p>Gray sleeveless t-shirt</p>
+      <span>180ghc</span>
+    </a>
+
+    <a href="acidwash-sleeveless-tshirt.html" class="card">
+      <img src="https://i.pinimg.com/736x/fa/d7/56/fad75626a9eeb9cfd44eaba843364ffa.jpg">
+      <p>Acid wash sleeveless t-shirt</p>
+      <span>180ghc</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- SECOND FEATURE -->
+<section class="feat">
+  <div>
+    <h2>Creator's Club Vol 3</h2>
+    <button>EXPLORE</button>
+  </div>
+</section>
+
+<!-- THIRD GRID -->
+<section class="products">
+  <h2>SHOP MORE</h2>
+  <div class="grid">
+
+    <a href="black-tank-top.html" class="card">
+      <img src="https://i.pinimg.com/1200x/82/a6/b8/82a6b8c7ab037c70ebd93c47d6ae8ec2.jpg">
+      <p>Black tank top</p>
+      <span>180ghc</span>
+    </a>
+
+    <a href="white-tank-top.html" class="card">
+      <img src="https://i.pinimg.com/1200x/a5/f1/bd/a5f1bd9a5d604e2fa0fb4620b43cfe27.jpg">
+      <p>White tank top</p>
+      <span>180ghc</span>
+    </a>
+
+    <a href="gray-tank-top.html" class="card">
+      <img src="https://i.pinimg.com/1200x/f2/65/13/f26513e17587a7b059b68d8768295079.jpg">
+      <p>Gray tank top</p>
+      <span>180ghc</span>
+    </a>
+
+    <a href="blue-black-tank-top.html" class="card">
+      <img src="https://i.pinimg.com/1200x/51/a2/4b/51a24bfe9eba7017b32c837d0d52bd9c.jpg">
+      <p>Blue-black tank top</p>
+      <span>180ghc</span>
+    </a>
+
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KHEM Sales</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0b0b;
+  color: white;
+}
+
+/* HEADER */
+.header {
+  padding: 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+}
+
+.back-btn {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  background: white;
+  color: black;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* HERO */
+.hero {
+  height: 60vh;
+  background: url("https://i.pinimg.com/1200x/b0/a1/ac/b0a1acc7e73cf74d3c5a7ab80177f4f7.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero h1 {
+  position: relative;
+  font-size: 60px;
+  letter-spacing: 4px;
+}
+
+/* BANNER */
+.banner {
+  text-align: center;
+  padding: 30px;
+  background: #111;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+/* GRID */
+.grid {
+  max-width: 1200px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  background: #151515;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.card-content {
+  padding: 15px;
+}
+
+.price {
+  color: #bbb;
+  margin: 5px 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* OUT OF STOCK BADGE */
+.stock {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.stock.out {
+  background: red;
+  color: white;
+}
+
+.stock.in {
+  background: green;
+  color: white;
+}
+
+/* DISABLED BUTTON */
+.btn.disabled {
+  background: gray;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <button class="back-btn" onclick="goBack()">← Back</button>
+  SALES
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>UP TO 50% OFF</h1>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+  LIMITED TIME SALE • KHEM STREETWEAR DROP
+</div>
+
+<!-- PRODUCTS -->
+<div class="grid">
+
+  <!-- WHITE T-SHIRT -->
+  <div class="card">
+    <span class="stock in">In Stock</span>
+    <img src="https://i.pinimg.com/1200x/63/68/cb/6368cb71583b56ddbc9ee67c83fab4dd.jpg">
+    <div class="card-content">
+      <h3>White T-Shirt</h3>
+      <p class="price">200 GHS <span class="old-price">250 GHS</span></p>
+      <a href="white-tshirt.html" class="btn">Shop Now</a>
+    </div>
+  </div>
+
+  <!-- BLACK T-SHIRT -->
+  <div class="card">
+    <span class="stock in">In Stock</span>
+    <img src="https://i.pinimg.com/1200x/94/e0/21/94e021c9580b8610a0aafc3eccbed4c2.jpg">
+    <div class="card-content">
+      <h3>Black T-Shirt</h3>
+      <p class="price">200 GHS <span class="old-price">250 GHS</span></p>
+      <a href="black-tshirt.html" class="btn">Shop Now</a>
+    </div>
+  </div>
+
+  <!-- ACID WASH -->
+  <div class="card">
+    <span class="stock in">In Stock</span>
+    <img src="https://i.pinimg.com/1200x/28/4c/83/284c836256c6f56c5ef635aa99bf5181.jpg">
+    <div class="card-content">
+      <h3>Acid Wash T-Shirt</h3>
+      <p class="price">200 GHS <span class="old-price">250 GHS</span></p>
+      <a href="acid-wash-tshirt.html" class="btn">Shop Now</a>
+    </div>
+  </div>
+
+  <!-- CHOCOLATE -->
+  <div class="card">
+    <span class="stock in">In Stock</span>
+    <img src="https://i.pinimg.com/736x/aa/42/28/aa4228a6e1fc12db6a76f83a59e8f89c.jpg">
+    <div class="card-content">
+      <h3>Chocolate T-Shirt</h3>
+      <p class="price">200 GHS <span class="old-price">250 GHS</span></p>
+      <a href="chocolate-tshirt.html" class="btn">Shop Now</a>
+    </div>
+  </div>
+
+  <!-- BLACK TANK (OUT OF STOCK) -->
+  <div class="card">
+    <span class="stock out">Out of Stock</span>
+    <img src="https://i.pinimg.com/1200x/82/a6/b8/82a6b8c7ab037c70ebd93c47d6ae8ec2.jpg">
+    <div class="card-content">
+      <h3>Black Tank Top</h3>
+      <p class="price">180 GHS <span class="old-price">250 GHS</span></p>
+      <a href="#" class="btn disabled">Sold Out</a>
+    </div>
+  </div>
+
+  <!-- WHITE TANK -->
+  <div class="card">
+    <span class="stock in">In Stock</span>
+    <img src="https://i.pinimg.com/1200x/a5/f1/bd/a5f1bd9a5d604e2fa0fb4620b43cfe27.jpg">
+    <div class="card-content">
+      <h3>White Tank Top</h3>
+      <p class="price">180 GHS <span class="old-price">250 GHS</span></p>
+      <a href="white-tank-top.html" class="btn">Shop Now</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function goBack() {
+  if (document.referrer) {
+    window.history.back();
+  } else {
+    window.location.href = "index.html";
+  }
+}
+</script>
+
+</body>
+</html>

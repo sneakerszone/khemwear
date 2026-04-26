@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - KHEM Store</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f6f6f6;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+header nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* HERO */
+.hero {
+  height: 260px;
+  background: url("https://i.pinimg.com/1200x/c6/e8/4c/c6e84c246fbea64b98913bb5f711cbce.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  background: rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* SECTION TITLE */
+.title {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.title h2 {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.title p {
+  color: #666;
+  margin-top: 8px;
+}
+
+/* CONTACT WRAPPER */
+.container {
+  display: flex;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* FORM CARD */
+form {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+textarea {
+  height: 120px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* INFO CARD */
+.info {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.info img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.info p {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp {
+  display: inline-block;
+  margin-top: 15px;
+  background: #25D366;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 40px;
+  margin-top: 60px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div><b>KHEM</b></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="brand.html">Brands</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Contact Our Store</h1>
+</div>
+
+<!-- TITLE -->
+<div class="title">
+  <h2>We’re Here to Help</h2>
+  <p>Send a message or chat with us instantly</p>
+</div>
+
+<!-- CONTACT -->
+<div class="container">
+
+  <!-- FORM -->
+  <form id="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <input type="text" placeholder="Subject">
+    <textarea placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <!-- INFO -->
+  <div class="info">
+    <img src="https://i.pinimg.com/736x/28/ed/f9/28edf935012da9edfbcad5d7c754fe04.jpg" alt="Support">
+
+    <p>📍 Accra, Ghana</p>
+    <p>📞 +233 25 767 7963</p>
+    <p>📧 support@khemstore.com</p>
+
+    <a class="whatsapp"
+       href="https://wa.me/233257677963"
+       target="_blank">
+      Chat on WhatsApp
+    </a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 KHEM Store. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

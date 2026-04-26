@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KHEM</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #111;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      position: absolute;
+      width: 100%;
+      color: white;
+      z-index: 10;
+    }
+
+    .navbar a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      height: 90vh;
+      background: url('https://i.pinimg.com/1200x/ca/ee/42/caee425cfe894dbd2c69c61547f26a0a.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      border: none;
+      background: white;
+      color: black;
+      cursor: pointer;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* PRODUCTS */
+    .products {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      background: #f5f5f5;
+    }
+
+    .card p {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .card span {
+      font-size: 12px;
+      color: gray;
+    }
+/* SOLD OUT STYLE */
+.sold-out {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.img-wrap {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 6px 10px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+    /* FEATURE SECTION */
+    .feature, .feat {
+      height: 80vh;
+      background: url('https://i.pinimg.com/1200x/65/75/03/657503f1a44523e0a75b82e1cbcfe442.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .feature h2, .feat h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .feature button, .feat button {
+      padding: 10px 20px;
+      border: none;
+      background: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">KHEM</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="catalog.html">Catalog</a>
+    <a href="brand.html">Brands</a>
+  </nav>
+  <div class="icons">🛒</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>The Legacy Shorts</h1>
+    <button>SHOP THE SHORTS</button>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+<section class="products">
+  <h2>SHOP THE LEGACY SHORTS</h2>
+  <div class="grid">
+
+    <a href="black-shorts.html" class="card">
+      <img src="https://cdn-images.farfetch-contents.com/29/62/42/33/29624233_58710535_1000.jpg">
+      <p>Black shorts</p>
+      <span>200ghc</span>
+    </a>
+
+    <a href="white-shorts.html" class="card">
+      <img src="https://i.pinimg.com/1200x/6d/1b/ae/6d1baef5c59cf4a837a615f001eb3a7f.jpg">
+      <p>White shorts</p>
+      <span>200ghc</span>
+    </a>
+
+    <a href="blue-shorts.html" class="card">
+      <img src="https://i.pinimg.com/1200x/f2/e6/b5/f2e6b5bd025a21a9c35b311a6f1e87b4.jpg">
+      <p>Blue shorts</p>
+      <span>200ghc</span>
+    </a>
+
+    <a href="javascript:void(0)" class="card sold-out">
+  <div class="img-wrap">
+    <img src="https://i.pinimg.com/1200x/69/82/8e/69828e3b13809bb3726e807c34872f83.jpg">
+    <div class="badge">SOLD OUT</div>
+  </div>
+  <p>Darkash shorts</p>
+  <span>200ghc</span>
+</a>
+
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature">
+  <div>
+    <h2>KHEM SHORTS</h2>
+    <button>EXPLORE THE jorts</button>
+  </div>
+</section>
+
+<!-- SECOND GRID -->
+<section class="products">
+  <h2>SHOP KHEM'S SHORTS</h2>
+  <div class="grid">
+
+    <a href="black-jorts.html" class="card">
+      <img src="https://i.pinimg.com/1200x/68/bd/e7/68bde7788df91752f7bcc24cf2097485.jpg">
+      <p>Black jorts</p>
+      <span>300ghc</span>
+    </a>
+
+    <a href="javascript:void(0)" class="card sold-out">
+  <div class="img-wrap">
+    <img src="https://i.pinimg.com/736x/17/36/fd/1736fde92c6cf5f73cd6aea3b4d3e643.jpg">
+    <div class="badge">SOLD OUT</div>
+  </div>
+  <p>white jorts</p>
+  <span>300ghc</span>
+</a>
+
+    <a href="blue-jorts.html" class="card">
+      <img src="https://i.pinimg.com/1200x/6f/22/74/6f22744872ab1646dc669e9d81895068.jpg">
+      <p>Blue jorts</p>
+      <span>300ghc</span>
+    </a>
+
+   <a href="javascript:void(0)" class="card sold-out">
+  <div class="img-wrap">
+      <img src="https://i.pinimg.com/736x/fa/d7/56/fad75626a9eeb9cfd44eaba843364ffa.jpg">
+       <div class="badge">SOLD OUT</div>
+  </div>
+  <p>darkash jorts</p>
+  <span>300ghc</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- SECOND FEATURE -->
+<section class="feat">
+  <div>
+    <h2>Summer Shorts Vol 1</h2>
+    <button>EXPLORE</button>
+  </div>
+</section>
+
+<!-- THIRD GRID -->
+<section class="products">
+  <h2>SHOP MORE SUMMER SHORTS</h2>
+  <div class="grid">
+
+    <a href="black-summer-shorts.html" class="card">
+      <img src="https://i.pinimg.com/736x/28/fc/d7/28fcd703d98ae771f1c7c7327396fa83.jpg">
+      <p>Black summer shorts</p>
+      <span>180ghc</span>
+    </a>
+
+    <a href="javascript:void(0)" class="card sold-out">
+  <div class="img-wrap">
+      <img src="https://cdn-images.farfetch-contents.com/32/63/27/06/32632706_63859590_1000.jpg">
+       <div class="badge">SOLD OUT</div>
+  </div>
+      <p>White summer shorts</p>
+      <span>180ghc</span>
+    </a>
+
+    <a href="javascript:void(0)" class="card sold-out">
+  <div class="img-wrap">
+      <img src="https://i.pinimg.com/736x/2c/cf/a5/2ccfa5473e015af50460b9529d5bfb49.jpg">
+       <div class="badge">SOLD OUT</div>
+  </div>
+      <p>Red summer shorts</p>
+      <span>180ghc</span>
+    </a>
+
+   <a href="javascript:void(0)" class="card sold-out">
+  <div class="img-wrap">
+          <img src="https://i.pinimg.com/1200x/75/70/e9/7570e963875974717540a606cdcd82de.jpg">
+           <div class="badge">SOLD OUT</div>
+  </div>
+      <p>Blue summer shorts</p>
+      <span>180ghc</span>
+    </a>
+
+  </div>
+</section>
+
+</body>
+</html>

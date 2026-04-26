@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KHEM | Clients & Street Edit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0b0b;
+  color: white;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.6);
+  padding: 15px;
+  text-align: center;
+}
+
+.back-btn {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  background: white;
+  color: black;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  background: url("https://i.pinimg.com/736x/37/df/4a/37df4ae1bfb33d1f64dce8db95a5bc72.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero h1 {
+  position: relative;
+  font-size: 55px;
+  letter-spacing: 3px;
+}
+
+/* SECTION TITLE */
+.title {
+  text-align: center;
+  margin: 70px 0 20px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: #aaa;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* IMAGE BLOCK */
+.item {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.8s;
+}
+
+.item:hover img {
+  transform: scale(1.1);
+}
+
+/* OVERLAY TEXT */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+/* REVIEW SECTION */
+.reviews {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review {
+  background: #151515;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.review:hover {
+  transform: translateY(-8px);
+}
+
+.review h3 {
+  margin-bottom: 5px;
+}
+
+.review p {
+  color: #bbb;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .grid, .review-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid, .review-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  
+  KHEM CLIENT EXPERIENCE
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>WHERE STYLE MEETS REAL CLIENTS</h1>
+</div>
+
+<!-- STREET EDIT -->
+<div class="title">STREET STYLE GALLERY</div>
+
+<div class="grid">
+
+  <div class="item">
+    <img src="https://i.pinimg.com/1200x/8e/30/65/8e30655a2ff1d68e6c15124d1c091d81.jpg">
+    <div class="overlay">Urban Black Fit</div>
+  </div>
+
+  <div class="item">
+    <img src="https://i.pinimg.com/1200x/7b/2d/c9/7b2dc99deb74342176aa870387077503.jpg">
+    <div class="overlay">Minimal Street Look</div>
+  </div>
+
+  <div class="item">
+    <img src="https://i.pinimg.com/736x/3d/d0/2b/3dd02b1b7bd2d04f0e2e1033d3340f51.jpg">
+    <div class="overlay">City Motion Style</div>
+  </div>
+
+  <div class="item">
+    <img src="https://i.pinimg.com/736x/55/92/9f/55929f690de6bdcba649515742d6f41d.jpg">
+    <div class="overlay">Night Luxury Fit</div>
+  </div>
+
+  <div class="item">
+    <img src="https://i.pinimg.com/736x/0d/fc/27/0dfc27afb10bba7c94107249a9a1b836.jpg">
+    <div class="overlay">Premium Streetwear</div>
+  </div>
+
+  <div class="item">
+    <img src="https://i.pinimg.com/736x/85/06/ca/8506ca9b0333c868334fc7c6e2642e19.jpg">
+    <div class="overlay">Elite Drop Style</div>
+  </div>
+
+</div>
+
+<!-- REVIEWS -->
+<div class="title">CLIENT REVIEWS</div>
+
+<div class="reviews">
+  <div class="review-grid">
+
+    <div class="review">
+      <h3>Kwame</h3>
+      <p>“The quality is insane 🔥 I love it.”</p>
+    </div>
+
+    <div class="review">
+      <h3>Jason</h3>
+      <p>“Fast delivery and premium packaging.”</p>
+    </div>
+
+    <div class="review">
+      <h3>Michael</h3>
+      <p>“Best streetwear brand I’ve worn.”</p>
+    </div>
+
+    <div class="review">
+      <h3>Chris</h3>
+      <p>“Fits perfectly, very clean design.”</p>
+    </div>
+
+    <div class="review">
+      <h3>David</h3>
+      <p>“Luxury feel at a good price.”</p>
+    </div>
+
+    <div class="review">
+      <h3>Daniel</h3>
+      <p>“Simple but top-tier fashion.”</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function goBack() {
+  if (document.referrer) {
+    window.history.back();
+  } else {
+    window.location.href = "index.html";
+  }
+}
+</script>
+
+</body>
+</html>

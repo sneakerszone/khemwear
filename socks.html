@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KHEM</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #111;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      position: absolute;
+      width: 100%;
+      color: white;
+      z-index: 10;
+    }
+
+    .navbar a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      height: 90vh;
+      background: url('https://i.pinimg.com/1200x/6c/ec/e2/6cece2bb784f8da00b4bd934162c73a8.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      border: none;
+      background: white;
+      color: black;
+      cursor: pointer;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* PRODUCTS */
+    .products {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      background: #f5f5f5;
+    }
+
+    .card p {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .card span {
+      font-size: 12px;
+      color: gray;
+    }
+
+    /* SOLD OUT */
+    .sold-out {
+      position: relative;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .img-wrap {
+      position: relative;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 6px 10px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      z-index: 2;
+    }
+
+    /* FEATURE SECTION */
+    .feature, .feat {
+      height: 80vh;
+      background: url('https://i.pinimg.com/1200x/72/6e/32/726e32dd3ef31393334a57e3f9a2b0f6.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .feature h2, .feat h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .feature button, .feat button {
+      padding: 10px 20px;
+      border: none;
+      background: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">KHEM</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Quick Buy</a>
+    <a href="brand.html">Brands</a>
+  </nav>
+  <div class="icons">🛒</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>The Legacy plain socks</h1>
+    <button>SHOP THE SOCKS</button>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+<section class="products">
+  <h2>SHOP THE 3in1 SOCKS</h2>
+  <div class="grid">
+
+    <a href="nike-3in1-white-socks.html" class="card">
+      <img src="https://i.pinimg.com/1200x/d1/6a/40/d16a40af8aa62bb9bdfc54912d3a27ec.jpg">
+      <p>nike 3in1 socks white</p>
+      <span>150ghc</span>
+    </a>
+
+    <a href="nike-3in1-mixed-socks.html" class="card">
+      <img src="https://i.pinimg.com/1200x/5f/75/32/5f7532bf3d99a1a3f58fca840f3fcdb1.jpg">
+      <p>nike 3in1 socks mixed</p>
+      <span>150ghc</span>
+    </a>
+
+    <a href="nike-3in1-black-socks.html" class="card">
+      <img src="https://i.pinimg.com/1200x/82/a6/69/82a669fd8789bb5dab09a9438f0bc167.jpg">
+      <p>nike 3in1 socks black</p>
+      <span>150ghc</span>
+    </a>
+
+    <a href="adidas-3in1-white-socks.html" class="card">
+        <img src="https://i.pinimg.com/1200x/ef/d6/32/efd632baf93fd626c8fd5beb4fff6fb7.jpg">
+      <p>adidas 3in1 white socks</p>
+      <span>150ghc</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature">
+  <div>
+    <h2>KHEM SOCKS</h2>
+    <button>EXPLORE THE PLAIN SOCKS</button>
+  </div>
+</section>
+
+<!-- SECOND GRID -->
+<section class="products">
+  <h2>SHOP KHEM'S SHOCKS</h2>
+  <div class="grid">
+
+    <a href="black-socks.html" class="card">
+      <img src="https://i.pinimg.com/1200x/6f/1f/07/6f1f07a4401aedc0b7dc9a818c915e3b.jpg">
+      <p>Black socks</p>
+      <span>40ghc</span>
+    </a>
+
+    <a href="white-socks.html" class="card ">
+        <img src="https://i.pinimg.com/1200x/1f/9c/62/1f9c621b08dd1d7ca5f3a4208c1712d6.jpg">
+      <p>White socks</p>
+      <span>40ghc</span>
+    </a>
+
+    <a href="grey-socks.html" class="card">
+      <img src="https://i.pinimg.com/1200x/4c/1b/77/4c1b77a5588c01f14c77f031852391fd.jpg">
+      <p>Grey socks </p>
+      <span>40ghc</span>
+    </a>
+
+    <a href="chunky-white-socks.html" class="card">
+        <img src="https://i.pinimg.com/1200x/48/3f/8d/483f8de19be7f111b8f66319d0e55d1f.jpg">
+      <p>chunky white socks</p>
+      <span>60ghc</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- SECOND FEATURE -->
+<section class="feat">
+  <div>
+    <h2>Socks Vol 1</h2>
+    <button>EXPLORE BRANDED SOCKS</button>
+  </div>
+</section>
+
+<!-- THIRD GRID -->
+<section class="products">
+  <h2>SHOP MORE BRANDED SOCKS</h2>
+  <div class="grid">
+
+    <a href="supreme-socks.html" class="card">
+      <img src="https://i.pinimg.com/736x/55/f8/68/55f868219679f9ae48cd3bb548ae365c.jpg">
+      <p>supreme socks</p>
+      <span>150ghc</span>
+    </a>
+
+   <a href="chromeheart-socks.html" class="card">
+      <img src="https://i.pinimg.com/1200x/fa/4d/cf/fa4dcfaebc1113c25a88614e81fd92f8.jpg">
+      <p>chrome heart socks</p>
+      <span>50ghc</span>
+    </a>
+
+    <a href="bape-socks.html" class="card">
+      <img src="https://i.pinimg.com/736x/e2/e8/48/e2e84842a410dfa76e714e296de76443.jpg">
+      <p>Bape socks</p>
+      <span>50ghc</span>
+    </a>
+
+    <a href="gallerydept-socks.html" class="card">
+      <img src="https://i.pinimg.com/736x/d9/ed/7c/d9ed7ce4945808738224f392e5d1f60d.jpg">
+      <p>Gallery Dept socks</p>
+      <span>50ghc</span>
+    </a>
+     <a href="javascript:void(0)" class="card sold-out">
+  <div class="img-wrap">
+      <img src="https://i.pinimg.com/736x/66/a3/68/66a36806cdf40487eaa9c3fc9e59bf84.jpg">
+        <div class="badge">SOLD OUT</div>
+  </div>
+      <p>balenciaga socks</p>
+      <span>50ghc</span>
+    </a>
+     <a href="javascript:void(0)" class="card sold-out">
+  <div class="img-wrap">
+      <img src="https://i.pinimg.com/1200x/7d/a0/c7/7da0c77395892bb5867857af03a768d8.jpg">
+        <div class="badge">SOLD OUT</div>
+  </div>
+      <p>prada socks</p>
+      <span>50ghc</span>
+    </a>
+
+  </div>
+</section>
+
+</body>
+</html>

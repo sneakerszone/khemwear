@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brands</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+header nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* HERO */
+.hero {
+  width: 100%;
+  height: 300px;
+  background: url("https://i.pinimg.com/1200x/3e/e6/17/3ee617c13b56734c5b6770eeba082676.jpg") center/cover no-repeat;
+}
+.page-title {
+  text-align: center;
+  padding: 60px 20px 20px;
+}
+
+.page-title h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.page-title h2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #666;
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* BRAND LIST */
+.brand-list {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 40px;
+}
+
+/* EACH BRAND ROW */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 30px;
+  margin-bottom: 20px;
+  background: #fff;
+  border: 1px solid #eee;
+  transition: 0.3s;
+}
+
+.brand:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* LOGO */
+.brand img {
+  width: 150px;
+  object-fit: contain;
+}
+
+/* TEXT */
+.brand-text h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.brand-text p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .brand {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div><b>KHEM</b></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="brand.html">Brands</a>
+    <a href="shop.html">Quick Shop</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero"></div>
+<div class="page-title">
+  <h1>Top Tier Heat</h1>
+<h2>Only the hardest, most expensive drops</h2></div>
+<!-- BRAND LIST -->
+
+<section class="brand-list">
+
+  <!-- NIKE -->
+  <div class="brand">
+    <a href="maisonmargiela.html">
+      <img src="https://i.pinimg.com/736x/ca/5b/7a/ca5b7a3401a65a71e5cdbb6c9c6365f4.jpg" alt="Maison Margiela">
+    </a>
+
+    <div class="brand-text">
+      <h2>Maison Margiela</h2>
+      <p>
+        Maison Margiela is a avant-garde fashion house known for its deconstructed designs
+        and innovative approach to clothing and accessories.
+      </p>
+    </div>
+  </div>
+
+  <!-- ADIDAS -->
+  <div class="brand">
+    <a href="balenciaga.html">
+      <img src="https://i.pinimg.com/1200x/82/0a/8e/820a8ed207650cbcfb58bbb7298b6903.jpg" alt="Balenciaga">
+    </a>
+
+    <div class="brand-text">
+      <h2>Balenciaga</h2>
+      <p>
+        Balenciaga is a prestigious luxury fashion house known for its innovative designs
+        and high-end craftsmanship in both clothing and accessories.
+      </p>
+    </div>
+  </div>
+
+  <!-- PUMA -->
+  <div class="brand">
+    <a href="under-construction.html">
+      <img src="https://i.pinimg.com/1200x/c0/64/14/c064142d2212827a4f2404cee70767d9.jpg" alt="Rick Owens">
+    </a>
+
+    <div class="brand-text">
+      <h2>Rick Owens</h2>
+      <p>
+        Rick Owens is a contemporary fashion designer known for his avant-garde aesthetic
+        and unconventional silhouettes in both clothing and accessories.
+      </p>
+    </div>
+  </div>
+
+  <!-- PRADA -->
+  <div class="brand">
+    <a href="under-construction.html">
+      <img src="https://i.pinimg.com/1200x/e8/30/11/e8301144ba983285b6bce120d0bae9eb.jpg" alt="Prada">
+    </a>
+
+    <div class="brand-text">
+      <h2>Prada</h2>
+      <p>
+        Prada is a luxury fashion house known for premium craftsmanship,
+        elegance, and high-end designer clothing.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 KHEM Store. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

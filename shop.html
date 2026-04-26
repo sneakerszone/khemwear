@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KHEM STREETWEAR</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+  color:#111;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:#fff;
+  border-bottom:1px solid #eee;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{font-weight:bold;letter-spacing:3px;}
+
+nav ul{display:flex;gap:25px;list-style:none;}
+nav a{text-decoration:none;color:#111;font-size:14px;}
+
+.hero{
+  height:70vh;
+  display:flex;
+  align-items:center;
+  padding:60px;
+  color:#fff;
+  background:url("https://i.pinimg.com/1200x/05/87/ce/0587ce2eefa26d62edb0db0bb4ea2a8b.jpg") center/cover;
+}
+
+.hero h1{font-size:48px;}
+.hero p{margin:15px 0;}
+
+.hero button{
+  padding:12px 20px;
+  border:none;
+  background:#fff;
+  cursor:pointer;
+  border-radius:6px;
+}
+
+.filter-bar{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin:30px 0;
+}
+
+.filter-bar button{
+  padding:10px 18px;
+  border:none;
+  background:#111;
+  color:#fff;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  padding:50px;
+}
+
+.card{
+  background:#fff;
+  padding:15px;
+  border-radius:12px;
+}
+
+.card img{
+  width:100%;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.price{margin-top:6px;font-weight:bold;}
+
+.sizes{display:flex;gap:8px;margin-top:10px;}
+
+.size-btn{
+  padding:6px 10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+.size-btn.active{
+  background:#111;
+  color:#fff;
+}
+
+.add-btn{
+  margin-top:10px;
+  width:100%;
+  padding:10px;
+  background:#111;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.modal img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#111;
+  color:#fff;
+  border:none;
+  padding:12px;
+  cursor:pointer;
+  border-radius:6px;
+}
+
+.left{left:20px;}
+.right{right:20px;}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  color:#fff;
+  font-size:28px;
+  cursor:pointer;
+}
+
+footer{
+  background:#111;
+  color:#fff;
+  padding:40px 60px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+footer p,footer a{
+  font-size:14px;
+  color:#ccc;
+  text-decoration:none;
+  display:block;
+  margin-bottom:6px;
+}
+
+.copy{text-align:center;margin-top:30px;color:#aaa;font-size:12px;}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr;padding:20px;}
+  nav{padding:20px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">KHEM</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="cart.html">Cart 🛒</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>KHEM STREETWEAR</h1>
+    <p>Premium sneakers & clothing for modern style</p>
+    <button onclick="document.getElementById('productGrid').scrollIntoView({behavior:'smooth'})">
+      Shop Now
+    </button>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <button onclick="filterProducts('all')">All</button>
+  <button onclick="filterProducts('slides')">Slides</button>
+  <button onclick="filterProducts('sneakers')">Sneakers</button>
+  <button onclick="filterProducts('shoes')">Shoes</button>
+  <button onclick="filterProducts('clothes')">Clothing</button>
+</div>
+
+<div class="grid" id="productGrid"></div>
+
+<div class="modal" id="viewer">
+  <span class="close" onclick="closeViewer()">✕</span>
+  <button class="arrow left" onclick="prev()">‹</button>
+  <img id="viewerImg">
+  <button class="arrow right" onclick="next()">›</button>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>KHEM</h4>
+      <p>Premium streetwear brand.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="brand.html">Sneakers</a>
+      <a href="tsshirt.html">T-Shirts</a>
+      <a href="socks.html">Socks</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>khemwear@gmail.com</p>
+      <p>+233 257 677 963</p>
+    </div>
+  </div>
+  <div class="copy">© 2026 KHEM</div>
+</footer>
+<script>
+
+/* CART */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* VIEWER */
+let imgs=[], index=0;
+
+function openViewer(arr){
+  imgs = arr;
+  index = 0;
+  document.getElementById("viewer").style.display="flex";
+  document.getElementById("viewerImg").src = imgs[index];
+}
+
+function closeViewer(){
+  document.getElementById("viewer").style.display="none";
+}
+
+function next(){
+  index = (index+1)%imgs.length;
+  document.getElementById("viewerImg").src = imgs[index];
+}
+
+function prev(){
+  index = (index-1+imgs.length)%imgs.length;
+  document.getElementById("viewerImg").src = imgs[index];
+}
+
+/* PRODUCTS (NOW WITH INDIVIDUAL SIZES) */
+
+const products = [
+  {name:"New Balance 9060 Mushroom", price:550, image:"7shop.jpeg", images:["7shop.jpeg","77shop.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+   {name:"Crocs blue", price:350, image:"cblu.jpeg", images:["cblu.jpeg","cbluu.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+  {name:"Adidas Handball Spezial Green", price:500, image:"1shop.jpeg", images:["1shop.jpeg","11shop.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+     {name:"Crocs clog realtree 'green&brown'", price:350, image:"cl2.jpeg", images:["cl2.jpeg","cl22.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+{name:"Jordan 1 Low Reversed Bred", price:500, image:"2shop.jpeg", images:["2shop.jpeg","22shop.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"ASICS Gel Kayano 14", price:500, image:"3shop.jpeg", images:["3shop.jpeg","33shop.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"Adidas Campus 00", price:450, image:"4shop.jpeg", images:["4shop.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"Nike Dunk Low Beige", price:500, image:"5shop.jpeg", images:["5shop.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+   {name:"Yeezy Slides 'black'", price:250, image:"https://i.pinimg.com/736x/42/f9/43/42f943664cccc50baacfa5daf189be1b.jpg", images:["https://i.pinimg.com/736x/42/f9/43/42f943664cccc50baacfa5daf189be1b.jpg","https://i.pinimg.com/1200x/96/9e/36/969e364ffbdb75953060a0851c31992b.jpg","https://i.pinimg.com/1200x/9d/b1/29/9db129fdc2e9e6f211844b4f630fd65a.jpg"], category:"slides", sizes:[40,41,42,43,44,45]},
+     {name:"Crocs clog realtree 'green&orange'", price:350, image:"cl1.jpeg", images:["cl1.jpeg","cl11.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+{name:"Nike Dunk Bape Camo", price:500, image:"9.jpeg", images:["9.jpeg","99.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"Nike book 1 'mowabb'", price:600, image:"88.jpeg", images:["8.jpeg","88.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+    {name:"Crocs clog lightRide 'black&ash'", price:350, image:"cl5.jpeg", images:["cl5.jpeg","cl55.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+ {name:"Clarks camo print suede wallabee", price:600, image:"10.jpeg", images:["10.jpeg","1010.jpeg"], category:"shoes", sizes:[40,41,42,43,44,45]},
+     {name:"Crocs clog lightRide 'camo'", price:350, image:"cl4.jpeg", images:["cl4.jpeg","cl44.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+{name:"Nike shoxTL 'black'", price:500, image:"11.jpeg", images:["1111.jpeg","11.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"New balance 530 white and silver", price:500, image:"12.jpeg", images:["1212.jpeg","12.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+    {name:"Crocs clog realtree 'b&w'", price:350, image:"cl0.jpeg", images:["cl0.jpeg","cl00.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+ {name:"Yeezy Season 7", price:600, image:"13.jpeg", images:["13.jpeg","1313.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+     {name:"Crocs clog lightRide 'brown'", price:350, image:"cl6.jpeg", images:["cl6.jpeg","cl66.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+   {name:"nike corteiz polo long sleeves 'black&white'", price:300, image:"ncb.jpeg", images:["ncb.jpeg","ncbb.jpeg",], category:"clothes", sizes:["L","XL","XXL","XXXL",]},
+   {name:"ATSF T-shirt 'white'", price:250, image:"atww.jpeg", images:["atw.jpeg","atww.jpeg"], category:"clothes", sizes:["M","L","XL","XXL",]},
+{name:"Nike shox R4'black and blue'", price:550, image:"16.jpeg", images:["16.jpeg","1616.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"Jordan 4 'Orchid'", price:500, image:"18.jpeg", images:["18.jpeg","1818.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+      {name:"Adidas Adilette shower slides 'b&w'", price:350, image:"a.jpeg", images:["a.jpeg","aa.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+ {name:"Nike corteiz polo long sleeves 'blue&white'", price:300, image:"ncbl.jpeg", images:["ncbll.jpeg","ncblll.jpeg","ncbl.jpeg"], category:"clothes", sizes:["L","XL","XXL","XXXL",]},
+{name:"Zara monochrome sandals 'black'", price:550, image:"z.jpeg", images:["z.jpeg","zz.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+  {name:"Asics Gel-Kayano 14 'white & red'", price:500, image:"19.jpeg", images:["19.jpeg","1919.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"Asics Gel-preleus 'black & grey'", price:550, image:"20.jpeg", images:["20.jpeg","2020.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+    {name:"Crocs Black", price:350, image:"cb.jpeg", images:["cb.jpeg","cbb.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+     {name:"Nike corteiz polo long sleeves 'pink&white'", price:300, image:"ncp.jpeg", images:["ncp.jpeg","ncpp.jpeg"], category:"clothes", sizes:["L","XL","XXL","XXXL",]},
+{name:"Asics Gel-Kayano 14 'cream'", price:500, image:"21.jpeg", images:["21.jpeg","2121.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"New Balance ABZORB 1890 'faded black'", price:550, image:"22.jpeg", images:["22.jpeg","2222.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+    {name:"diesel t-shirt 'black'", price:250, image:"https://i.pinimg.com/1200x/d4/84/ba/d484ba8333fa81c3bb3a86efc7cc6c8a.jpg", images:["ds1.jpeg","ds11.jpeg","ds111.jpeg"], category:"clothes", sizes:["M","L","XL","XXL",]},
+ {name:"Adidas gazelle indoor 'white and blue'", price:500, image:"23.jpeg", images:["23.jpeg","2323.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"Nike cortez 'white & blue'", price:500, image:"25.jpeg", images:["25.jpeg","2525.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+   {name:"Yeezy slides 'brown'", price:250, image:"https://i.pinimg.com/736x/f9/ad/8f/f9ad8f03bdecbf63e093ad250db94e4f.jpg", images:["https://i.pinimg.com/736x/83/fd/ed/83fded62a782edd954a4c05cbe63c3c9.jpg","https://i.pinimg.com/736x/f9/ad/8f/f9ad8f03bdecbf63e093ad250db94e4f.jpg","https://i.pinimg.com/736x/2b/fa/9c/2bfa9c880138fac41714542506888226.jpg"], category:"slides", sizes:[40,41,42,43,44,45]},
+  {name:"Nike P-6000 ", price:500, image:"26.jpeg", images:["26.jpeg","2626.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+     {name:"diesel long sleeve 'white'", price:300, image:"dlw.jpeg", images:["dlw.jpeg","dlww.jpeg","dlwww.jpeg"], category:"clothes", sizes:["M","L","XL","XXL",]},
+   {name:"ATSF T-shirt 'black'", price:250, image:"atbb.jpeg", images:["atb.jpeg","atbb.jpeg"], category:"clothes", sizes:["M","L","XL","XXL",]},
+{name:"converse chuck 70 high 'brown'", price:500, image:"27.jpeg", images:["27.jpeg","2727.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+    {name:"Crocs clog lightRide 'brown&white'", price:350, image:"cl7.jpeg", images:["cl7.jpeg","cl77.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+    {name:"nike corteiz polo long sleeves 'black&white'", price:300, image:"ncb.jpeg", images:["ncb.jpeg","ncbb.jpeg",], category:"clothes", sizes:["L","XL","XXL","XXXL",]},
+{name:"Timberland black", price:650, image:"28.jpeg", images:["28.jpeg","2828.jpeg"], category:"shoes", sizes:[40,41,42,43,44,45,46,47]},
+  {name:"Nike court shot 'black & white'", price:550, image:"29.jpeg", images:["29.jpeg","2929.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"MLB Winner chunky NY Yankees", price:600, image:"30.jpeg", images:["30.jpeg","3030.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+     {name:"diesel long sleeve 'black'", price:300, image:"dlb.jpeg", images:["dlb.jpeg","dlbb.jpeg","dlbbb.jpeg"], category:"clothes", sizes:["M","L","XL","XXL",]},
+ {name:"Crocs Brown", price:350, image:"cbr.jpeg", images:["cbr.jpeg","cbrr.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+  {name:"New Balance 9060 'castlerock grey blue'", price:550, image:"31.jpeg", images:["31.jpeg","3131.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+   {name:"New Balance 9060 'sea salt'", price:550, image:"32.jpeg", images:["32.jpeg","3232.jpeg"], category:"sneakers", sizes:[40,41,42,43,44,45]},
+  {name:"Nike Cortez 'black & white'", price:500, image:"36.jpeg", images:["36.jpeg","3636.jpeg"], category:"sneakers", sizes:[40,41,42,43,44]},
+{name:"Crocs White", price:350, image:"cw.jpeg", images:["cw.jpeg","cww.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+  {name:"Crocs Army Green", price:350, image:"carm.jpeg", images:["carm.jpeg","carmm.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+   {name:"Crocs clog realtree 'green&red'", price:350, image:"cl3.jpeg", images:["cl3.jpeg","cl33.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+   {name:"bg", price:350, image:"lvs.jpeg", images:["lvs.jpeg","lvssjpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+   {name:"'", price:350, image:"bgs.jpeg", images:["bgs.jpeg","bgss.jpeg"], category:"slides", sizes:[40,41,42,43,44,45]},
+   {name:"diesel t-shirt 'white'", price:250, image:"https://i.pinimg.com/1200x/39/6a/42/396a42e3ea75495dcb87ee20033679af.jpg", images:["ds2.jpeg","ds22.jpeg","ds222.jpeg","https://i.pinimg.com/1200x/87/9b/31/879b3129ac59dcf9f91f1cbacc3a60d8.jpg"], category:"clothes", sizes:["M","L","XL","XXL",]},
+];
+const grid = document.getElementById("productGrid");
+
+function renderProducts(list){
+  grid.innerHTML="";
+
+  list.forEach((p,i)=>{
+    const card = document.createElement("div");
+    card.className="card";
+
+    const sizeHTML = (p.sizes || []).map(s => 
+      `<div class="size-btn">${s}</div>`
+    ).join("");
+
+    card.innerHTML=`
+      <img src="${p.image}" onclick='openViewer(${JSON.stringify(p.images)})'>
+      <h3>${p.name}</h3>
+      <div class="price">GHS ${p.price}</div>
+
+      <div class="sizes">
+        ${sizeHTML}
+      </div>
+
+      <button class="add-btn" data-index="${i}">Add to Cart</button>
+    `;
+
+    grid.appendChild(card);
+  });
+
+  enableSizes();
+  enableCart(list);
+}
+
+function filterProducts(cat){
+  if(cat==="all") renderProducts(products);
+  else renderProducts(products.filter(p=>p.category===cat));
+}
+
+/* SIZE */
+function enableSizes(){
+  document.querySelectorAll(".card").forEach(card=>{
+    const sizes = card.querySelectorAll(".size-btn");
+
+    sizes.forEach(btn=>{
+      btn.onclick=()=>{
+        sizes.forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+      };
+    });
+  });
+}
+
+/* CART */
+function enableCart(list){
+  document.querySelectorAll(".add-btn").forEach(btn=>{
+    btn.onclick=()=>{
+      const card = btn.closest(".card");
+      const product = list[btn.dataset.index];
+
+      const size = card.querySelector(".size-btn.active");
+
+      if(!size){
+        alert("Select size first");
+        return;
+      }
+
+      cart.push({
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        size: size.textContent,
+        qty: 1
+      });
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart 🛒");
+    };
+  });
+}
+
+renderProducts(products);
+
+</script>
+</body></html>

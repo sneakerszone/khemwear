@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About | KHEM STORE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a0a0a;
+  color: white;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.back-btn {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  background: white;
+  color: black;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("https://i.pinimg.com/736x/21/98/1c/21981cd489854f606517f0be365ee8c5.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+}
+
+.hero h1 {
+  position: relative;
+  font-size: 70px;
+  letter-spacing: 6px;
+}
+
+.hero p {
+  position: relative;
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* SECTION */
+.section {
+  max-width: 1200px;
+  margin: 120px auto;
+  padding: 20px;
+}
+
+/* STORY */
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.story h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.story p {
+  color: #bbb;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* FULL IMAGE */
+.full-image {
+  height: 70vh;
+  background: url("https://i.pinimg.com/736x/a0/e5/a5/a0e5a54189e59322beac8db418b32b5e.jpg") center/cover no-repeat;
+  margin: 120px 0;
+  position: relative;
+}
+
+.full-image::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+/* BIG TEXT */
+.big-text {
+  text-align: center;
+  margin: 120px 0;
+}
+
+.big-text h2 {
+  font-size: 45px;
+  letter-spacing: 2px;
+}
+
+.big-text p {
+  color: #bbb;
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+/* VALUES */
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 60px;
+}
+
+.value {
+  background: #151515;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.value h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.value p {
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* STORE INFO BLOCK */
+.store-info {
+  margin-top: 100px;
+  background: #111;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.store-info h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.store-info p {
+  color: #bbb;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* GRID INFO */
+.grid-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.box {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.box h3 {
+  margin-bottom: 10px;
+}
+
+.box p {
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .story { grid-template-columns: 1fr; }
+  .values { grid-template-columns: 1fr; }
+  .grid-info { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 45px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <button class="back-btn" onclick="goBack()">BACK</button>
+  KHEM STORE • ABOUT
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>KHEM STORE</h1>
+    <p>Online Sneaker & Streetwear Store • Founded 2024</p>
+  </div>
+</div>
+
+<div class="section">
+
+  <!-- STORY -->
+  <div class="story">
+    <div>
+      <h2>How We Started</h2>
+      <p>
+        KHEM STORE started in 2024 as a small online fashion shop focused on
+        sneakers and streetwear. We began by reselling limited sneakers,
+        graphic tees, and trending street fashion pieces.
+        <br><br>
+        The goal was simple — make premium fashion accessible online without
+        stress or physical store limits.
+        <br><br>
+        Today, we continue to grow as an online store serving customers
+        who love sneakers, luxury-inspired streetwear, and affordable fashion deals.
+      </p>
+    </div>
+
+    <img src="https://i.pinimg.com/736x/37/1b/51/371b5127f5625c8c221113790634634f.jpg"
+    style="width:100%; border-radius:12px;">
+  </div>
+
+  <!-- FULL IMAGE -->
+  <div class="full-image"></div>
+
+  <!-- BIG STATEMENT -->
+  <div class="big-text">
+    <h2>WE ARE AN ONLINE STORE</h2>
+    <p>
+      KHEM STORE is built for convenience. Customers browse, order, and
+      purchase directly online. No physical shop stress — just fast
+      delivery, updated products, and smooth shopping experience.
+    </p>
+  </div>
+
+  <!-- VALUES -->
+  <div class="values">
+
+    <div class="value">
+      <h3>Online Shopping</h3>
+      <p>100% digital store experience with easy browsing and checkout system.</p>
+    </div>
+
+    <div class="value">
+      <h3>Sneakers & Fashion</h3>
+      <p>We focus on sneakers, streetwear, hoodies, tees, and accessories.</p>
+    </div>
+
+    <div class="value">
+      <h3>Affordable Pricing</h3>
+      <p>We aim to bring premium-looking fashion at affordable online prices.</p>
+    </div>
+
+  </div>
+
+  <!-- STORE INFO -->
+  <div class="store-info">
+    <h2>About Our Store System</h2>
+    <p>
+      KHEM STORE is built as a modern e-commerce platform where customers can:
+    </p>
+
+    <div class="grid-info">
+
+      <div class="box">
+        <h3>Browse Products</h3>
+        <p>View sneakers, clothing, and accessories with images and details.</p>
+      </div>
+
+      <div class="box">
+        <h3>Add to Cart</h3>
+        <p>Customers can select items and store them in their shopping cart easily.</p>
+      </div>
+
+      <div class="box">
+        <h3>Order Online</h3>
+        <p>Place orders directly through the website without physical interaction.</p>
+      </div>
+
+      <div class="box">
+        <h3>Fast Updates</h3>
+        <p>New sneakers and fashion items are added regularly to the store.</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function goBack() {
+  if (document.referrer) {
+    window.history.back();
+  } else {
+    window.location.href = "index.html";
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balenciaga</title>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khem</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+  color:#111;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  align-items:center;
+  padding:20px 60px;
+  background:#fff;
+  position:relative;
+}
+
+/* LOGO LEFT */
+.logo{
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* CENTER MENU */
+.menu{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+.menu li a{
+  text-decoration:none;
+  color:#111;
+  font-size:14px;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.menu li a:hover{
+  color:#000;
+}
+
+/* CART RIGHT */
+.cart{
+  margin-left:auto;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:bold;
+  color:#111;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  transition:0.3s;
+}
+
+.cart:hover{
+  transform:scale(1.05);
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  height:90vh;
+  background:url('https://i.pinimg.com/1200x/d4/a1/1f/d4a11ffae7775a080ad8eef018fcc518.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:60px;
+  color:#fff;
+}
+
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:500px;
+}
+
+.hero-content h1{
+  font-size:55px;
+  font-weight:900;
+}
+
+.hero-content p{
+  margin:20px 0;
+  color:#ddd;
+}
+
+.hero-content button{
+  padding:12px 25px;
+  border:none;
+  background:#fff;
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* SECTION */
+.section{
+  padding:60px;
+}
+
+.section h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-size:28px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:#fff;
+  padding:20px;
+  text-align:center;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:contain;
+}
+
+.card h4{
+  margin-top:10px;
+}
+
+.card p{
+  color:#555;
+  font-size:14px;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+}
+
+.product{
+  background:#fff;
+  padding:15px;
+  border-radius:8px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.product:hover{
+  transform:scale(1.03);
+}
+
+.product a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.product img{
+  width:100%;
+  height:150px;
+  object-fit:contain;
+}
+
+.product h5{
+  margin-top:10px;
+}
+
+.product span{
+  display:block;
+  margin-top:5px;
+  color:#777;
+}
+
+/* FOOTER */
+footer{
+  background:#eee;
+  padding:50px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:30px;
+}
+
+.footer-grid h4{
+  margin-bottom:10px;
+}
+
+.footer-grid a{
+  display:block;
+  font-size:14px;
+  color:#555;
+  margin:5px 0;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h1 class="logo">KHEM</h1>
+
+  <ul class="menu">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+
+  <a href="cart.html" class="cart">🛒 Cart</a>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Balenciaga.<br>step with style</h1>
+    <p>represents bold luxury and modern streetwear culture</p>
+    <button onclick="location.href='balenciaga.html'">SHOP NOW</button>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="section">
+  <h2>FEATURED ITEMS</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <a href="balenciagaalaska.html">
+        <img src="https://i.pinimg.com/736x/d7/67/2f/d7672fba7cbb89557c93132f47248bd6.jpg">
+        <h4>Balenciaga Alaska</h4>
+        
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="balenciagabulldozer.html">
+        <img src="https://i.pinimg.com/1200x/9b/03/d1/9b03d11e2a7d28caa3e32a773f4cfad5.jpg">
+        <h4>Balenciaga Bulldozer<br> Lace up</h4>
+        
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="balenciagaslippersblack.html">
+        <img src="https://i.pinimg.com/1200x/bc/9b/50/bc9b50771e1737340bb1e0d38db736a1.jpg">
+        <h4>Balenciaga Slippers</h4>
+        
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- RUNNING -->
+<section class="section">
+  <h2>RUNNING SHOES</h2>
+
+  <div class="products">
+
+    <div class="product">
+      <a href="balenciagatrackblack.html">
+        <img src="https://i.pinimg.com/1200x/b3/ef/c4/b3efc43ac5ccd2c6bf33d088fbad1382.jpg">
+       <h5>Balenciaga Track</h5>
+        <h5>Black</h5>
+        <span>₵1,400</span>
+    </a>
+</div>
+
+    <div class="product">
+      <a href="balenciagarunnerblack.html">
+        <img src="https://i.pinimg.com/1200x/ec/0c/ee/ec0cee994aa94939bdd2cd661166a622.jpg">
+        <h5>Balenciaga Runner</h5>
+        <h5>Black</h5>
+        <span>₵1,400</span>
+      </a>
+    </div>
+
+    <div class="product">
+      <a href="balenciagarunnermulticoloured.html">
+        <img src="https://i.pinimg.com/736x/32/38/c3/3238c3f2d9744b3a920dee1562076f30.jpg">
+        <h5>Balenciaga Runner</h5>
+        <h5>Multi-coloured</h5>
+        <span>₵1,500</span>
+      </a>
+    </div>
+
+    <div class="product">
+      <a href="under-construction.html">
+        <img src="https://i.pinimg.com/1200x/df/22/0e/df220e154d5a65dba24950030917b46d.jpg">
+        <h5>Balenciaga fall</h5>
+        <h5>sneakers</h5>
+        <span>₵1,500</span>
+      </a>
+    </div>
+
+    <div class="product">
+      <a href="under-construction.html">
+        <img src="https://i.pinimg.com/1200x/7b/08/5b/7b085b93b34340774f85c7d0b0c3f3f0.jpg">
+        <h5>Balenciaga graffiti</h5>
+        <h5> sneakers</h5>
+        <span>₵1,500</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+
+    <div>
+      <h4>SHOP BY</h4>
+      <a href="under-construction.html">Sneakers</a>
+      <a href="under-construction.html">Clothing</a>
+      <a href="under-construction.html">Accessories</a>
+    </div>
+
+    <div>
+      <h4>HATS</h4>
+      <a href="under-construction.html">Caps</a>
+      <a href="under-construction.html">Beanies</a>
+      <a href="under-construction.html">Snapbacks</a>
+    </div>
+
+    <div>
+      <h4>ACCESSORIES</h4>
+      <a href="under-construction.html">Bags</a>
+      <a href="under-construction.html">Socks</a>
+      <a href="under-construction.html">Watches</a>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

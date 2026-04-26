@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison Margiela Paint Replica</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#fff;
+  color:#111;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  border-bottom:1px solid #eee;
+}
+
+/* LAYOUT */
+.container{
+  display:flex;
+  gap:60px;
+  padding:40px 60px;
+}
+
+.left{ flex:1; }
+.right{ flex:1; }
+
+.main-img{
+  width:100%;
+  height:500px;
+  object-fit:contain;
+  background:#f7f7f7;
+  border-radius:10px;
+  padding:20px;
+}
+
+/* THUMBS */
+.thumbs{
+  display:flex;
+  gap:15px;
+  margin-top:20px;
+}
+
+.thumbs img{
+  width:90px;
+  height:90px;
+  object-fit:contain;
+  background:#f5f5f5;
+  padding:10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* SIZE */
+.sizes{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.sizes button{
+  padding:10px 15px;
+  border:1px solid #ddd;
+  background:#fff;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.sizes button.active{
+  background:#111;
+  color:#fff;
+}
+
+/* BUTTONS */
+.buttons{
+  margin-top:25px;
+  display:flex;
+  gap:15px;
+}
+
+.cart{
+  background:#fff;
+  border:1px solid #111;
+  padding:12px 25px;
+}
+
+/* DESCRIPTION */
+.description{
+  margin-top:20px;
+  padding:15px;
+  border-top:1px solid #eee;
+}
+
+.description p{
+  margin-top:10px;
+  line-height:1.6;
+  color:#444;
+}
+
+.description ul{
+  margin-top:10px;
+  padding-left:18px;
+}
+
+.description li{
+  margin-top:5px;
+}
+
+/* RECOMMENDATION */
+.recommend{
+  padding:60px;
+}
+
+.reco-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+  gap:20px;
+}
+
+.card{
+  border:1px solid #eee;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  height:140px;
+  object-fit:contain;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .container{
+    flex-direction:column;
+    padding:20px;
+  }
+
+  .main-img{ height:300px; }
+
+  .buttons{
+    flex-direction:column;
+  }
+
+  .cart{ width:100%; }
+}
+.card{
+  display:block;
+  text-decoration:none;
+  color:#111;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>KHEM</h1>
+  <a href="cart.html">🛒 Cart</a>
+</nav>
+
+<div class="container">
+
+  <!-- LEFT -->
+  <div class="left">
+
+    <img id="mainImage" class="main-img"
+    src="https://i.pinimg.com/1200x/27/2a/21/272a21803d661a67c538f90e75fa0351.jpg">
+
+    <div class="thumbs">
+      <img src="https://i.pinimg.com/1200x/27/2a/21/272a21803d661a67c538f90e75fa0351.jpg" onclick="changeImage(this.src)">
+      <img src="https://i.pinimg.com/736x/d3/00/43/d30043bb2fa9a3e008592e8f396850f4.jpg" onclick="changeImage(this.src)">
+      <img src="https://i.pinimg.com/1200x/50/a0/66/50a066dce182d3d99b7ba0b4b7a891b9.jpg" onclick="changeImage(this.src)">
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <h2>Maison Margiela</h2>
+        <h4>Paint Replica low-top sneakers</h4>
+    <div class="price">₵1,500</div>
+
+    <h4>Size</h4>
+    <div class="sizes">
+      <button onclick="selectSize(this)">40</button>
+      <button onclick="selectSize(this)">41</button>
+      <button onclick="selectSize(this)">42</button>
+      <button onclick="selectSize(this)">43</button>
+      <button onclick="selectSize(this)">44</button>
+       <button onclick="selectSize(this)">45</button>
+   </div>
+
+    <div class="buttons">
+      <button class="cart" onclick="addToCart()">Add To Cart</button>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="description">
+      <h4>Product Details</h4>
+
+      <p>
+        The Maison Margiela Paint Replica low-top sneakers are a premium luxury design, crafted for comfort and streetwear fashion.
+        Built with high-quality materials and a clean modern aesthetic.
+      </p>
+
+      <ul>
+        <li>✔ Premium leather upper</li>
+        <li>✔ Lightweight cushioning</li>
+        <li>✔ Durable outsole grip</li>
+        <li>✔ True-to-size fit</li>
+        <li>✔ Luxury streetwear design</li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- RECOMMENDATIONS -->
+<div class="recommend">
+  <h3>You may also like</h3>
+
+  <div class="reco-grid">
+
+    <!-- PRODUCT 1 -->
+    <a href="futuresneakerblack.html" class="card">
+      <img src="https://i.pinimg.com/1200x/e4/82/37/e482370aa7155883902bd265b3a4d933.jpg">
+      <p>Future Margiela black</p>
+      <small>₵2,000</small>
+    </a>
+
+    <!-- PRODUCT 2 -->
+    <a href="maisonmargielareplicapaintblack.html" class="card">
+      <img src="https://cdn-images.farfetch-contents.com/16/07/19/88/16071988_30985491_1000.jpg">
+      <p>maison Margiela Paint Replica black</p>
+      <small>₵1,500</small>
+    </a>
+
+    <!-- PRODUCT 3 -->
+    <a href="maisonmargielareplicacream.html" class="card">
+      <img src="https://cdn-images.farfetch-contents.com/29/99/79/03/29997903_59479760_1000.jpg">
+      <p>maison Margiela Paint Replica cream</p>
+      <small>₵1,500</small>
+    </a>
+
+    <!-- PRODUCT 4 -->
+    <a href="maisonmargielareplicapaintwhite.html" class="card">
+      <img src="https://i.pinimg.com/1200x/1a/44/38/1a44386b0ac31f901193fce445a4e655.jpg">
+      <p>maison Margiela Paint Replica white</p>
+      <small>₵1,500</small>
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+
+let selectedSize = null;
+
+/* IMAGE CHANGE */
+function changeImage(img){
+  document.getElementById("mainImage").src = img;
+}
+
+/* SIZE SELECT */
+function selectSize(btn){
+  document.querySelectorAll(".sizes button")
+  .forEach(b => b.classList.remove("active"));
+
+  btn.classList.add("active");
+  selectedSize = btn.innerText;
+}
+
+/* CART */
+function addToCart(){
+
+  if(!selectedSize){
+    alert("Select a size first!");
+    return;
+  }
+
+  let product = {
+    name: "Maison Margiela Paint Replica white sneakers",
+    price: 1500,
+    size: selectedSize,
+    image: document.getElementById("mainImage").src,
+    qty: 1
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let existing = cart.find(item =>
+    item.name === product.name &&
+    item.size === product.size
+  );
+
+  if(existing){
+    existing.qty += 1;
+  } else {
+    cart.push(product);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert("Added to cart ✔");
+}
+
+</script>
+
+</body>
+</html>

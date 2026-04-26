@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon - KHEM</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+
+/* CONTAINER */
+.box{
+  max-width:500px;
+}
+
+/* LOGO */
+h1{
+  font-size:40px;
+  margin-bottom:10px;
+  letter-spacing:2px;
+}
+
+/* TITLE */
+h2{
+  font-size:24px;
+  margin-bottom:15px;
+}
+
+/* TEXT */
+p{
+  color:#bbb;
+  margin-bottom:25px;
+  line-height:1.6;
+}
+
+/* BUTTON */
+a{
+  display:inline-block;
+  padding:12px 25px;
+  background:#fff;
+  color:#111;
+  text-decoration:none;
+  border-radius:5px;
+  transition:0.3s;
+}
+
+a:hover{
+  background:#ddd;
+}
+
+/* LOADER */
+.loader{
+  margin:25px auto;
+  width:40px;
+  height:40px;
+  border:4px solid #444;
+  border-top:4px solid #fff;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  0%{ transform:rotate(0deg); }
+  100%{ transform:rotate(360deg); }
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  h1{ font-size:30px; }
+  h2{ font-size:20px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <h1>KHEM</h1>
+
+  <h2>Page Under Construction 🚧</h2>
+
+  <p>
+    We're working on this product page to bring you the best experience.
+    Check back soon — something clean is coming.
+  </p>
+
+  <div class="loader"></div>
+
+  <a href="shop.html">⬅ Back to Shop</a>
+
+</div>
+
+</body>
+</html>

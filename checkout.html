@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KHEM Checkout PRO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("AmNISyKCKVOIy0gLM");
+  })();
+</script>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:Inter, Arial;
+}
+
+body{
+  margin:0;
+  background:#f4f4f4;
+}
+
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:25px;
+}
+
+.checkout{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:25px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+input{
+  width:100%;
+  padding:14px;
+  margin-bottom:12px;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+
+.pay-btn{
+  width:100%;
+  padding:15px;
+  background:black;
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.item{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+}
+
+.item img{
+  width:60px;
+  height:60px;
+  border-radius:8px;
+  object-fit:cover;
+}
+
+.item-details{
+  flex:1;
+}
+
+@media(max-width:600px){
+  .checkout{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+  <h2>KHEM WEAR</h2>
+  <span>Secure Checkout</span>
+</div>
+
+<div class="checkout">
+
+<div class="card">
+<h3>Customer Info</h3>
+
+<input id="fname" placeholder="First Name">
+<input id="lname" placeholder="Last Name">
+<input id="phone" placeholder="Phone">
+<input id="email" placeholder="Email">
+
+<h3>Delivery Address</h3>
+<input id="destination" placeholder="Enter your address">
+
+<button class="pay-btn" onclick="payNow()">PAY & PLACE ORDER</button>
+<h3>Provide correct details</h3>
+<h4>Kindly check your email spam for your invoice after payment</h4>
+</div>
+
+<div class="card" id="summary"></div>
+
+</div>
+</div>
+
+<script>
+
+function getCart(){
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function render(){
+  const cart = getCart();
+  const box = document.getElementById("summary");
+
+  if(cart.length === 0){
+    box.innerHTML = "<p>Cart is empty</p>";
+    return;
+  }
+
+  let total = 0;
+  box.innerHTML = "<h3>Order Summary</h3>";
+
+  cart.forEach(item=>{
+    total += item.price * item.qty;
+
+    box.innerHTML += `
+      <div class="item">
+        <img src="${item.image || 'https://via.placeholder.com/100'}">
+        <div class="item-details">
+          <b>${item.name}</b><br>
+          Qty: ${item.qty}
+          ${item.size ? `<br>Size: ${item.size}` : ""}
+          ${item.color ? `<br>Color: ${item.color}` : ""}
+        </div>
+        <div>₵${item.price}</div>
+      </div>
+    `;
+  });
+
+  box.innerHTML += `<h3>Total: ₵${total}</h3>`;
+}
+
+render();
+
+function payNow(){
+
+  const cart = getCart();
+  if(cart.length === 0) return alert("Cart empty");
+
+  let fname = document.getElementById("fname").value;
+  let lname = document.getElementById("lname").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+  let address = document.getElementById("destination").value;
+
+  if(!fname || !lname || !phone || !email || !address){
+    return alert("Fill all fields");
+  }
+
+  let total = 0;
+  cart.forEach(i => total += i.price * i.qty);
+
+  let orderID = "KHEM_" + Date.now();
+
+  let handler = PaystackPop.setup({
+    key: "pk_live_ddfbde45ae615f370318ed3149d36e4b87181337",
+    email: email,
+    amount: total * 100,
+    currency: "GHS",
+    ref: orderID,
+
+    callback: function(){
+
+      // ===== SAVE ORDER =====
+      let order = {
+        id: orderID,
+        name: fname + " " + lname,
+        phone,
+        address,
+        items: cart,
+        total,
+        date: new Date().toLocaleString()
+      };
+
+      let orders = JSON.parse(localStorage.getItem("orders")) || [];
+      orders.push(order);
+      localStorage.setItem("orders", JSON.stringify(orders));
+
+      // ===== BUILD CLEAN ITEMS (NO IMAGE) =====
+      let itemsHTML = "";
+
+      cart.forEach(item => {
+        itemsHTML += `
+          <div style="margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:10px">
+            <b style="font-size:14px">${item.name}</b><br>
+            Qty: ${item.qty}<br>
+            ${item.size ? `Size: ${item.size}<br>` : ""}
+            ${item.color ? `Color: ${item.color}<br>` : ""}
+            <span style="font-weight:600">₵${item.price}</span>
+          </div>
+        `;
+      });
+
+      // ===== EMAIL DATA =====
+      let emailData = {
+        order_id: orderID,
+        name: fname + " " + lname,
+        phone: phone,
+        address: address,
+        total: total,
+        items: itemsHTML
+      };
+
+      // ===== SEND EMAILS =====
+      emailjs.send("service_v1rpxzw", "template_ulwrdmc", emailData);
+
+      emailjs.send("service_v1rpxzw", "template_ulwrdmc", {
+        ...emailData,
+        email: email
+      });
+
+      alert("Payment successful & invoice sent to email ✅");
+
+      localStorage.removeItem("cart");
+    },
+
+    onClose: function(){
+      alert("Payment cancelled");
+    }
+  });
+
+  handler.openIframe();
+}
+
+</script>
+</body>
+</html>
